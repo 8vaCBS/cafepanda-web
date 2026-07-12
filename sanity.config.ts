@@ -3,7 +3,7 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './sanity/schemaTypes'
 
-export default defineConfig({
+const config = defineConfig({
   name: 'default',
   title: 'Café Panda CMS',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
@@ -18,3 +18,5 @@ export default defineConfig({
     types: schemaTypes,
   },
 })
+
+export default config

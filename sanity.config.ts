@@ -1,13 +1,20 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
-import { schemaTypes } from './sanity/schemas'
+import { schemaTypes } from './sanity/schemaTypes'
 
 export default defineConfig({
-  name: 'cafe-panda',
+  name: 'default',
   title: 'Café Panda CMS',
-  projectId: 'm8varzzi',
-  dataset: 'production',
-  plugins: [structureTool(), visionTool()],
-  schema: { types: schemaTypes },
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || '',
+  apiVersion: '2024-01-01',
+  basePath: '/studio',
+  plugins: [
+    structureTool(),
+    visionTool(),
+  ],
+  schema: {
+    types: schemaTypes,
+  },
 })

@@ -1,49 +1,27 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
 export default function StudioPage() {
-  const [studio, setStudio] = useState(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    ;(async () => {
-      try {
-        const { NextStudio } = await import('next-sanity/studio')
-        const config = (await import('@/sanity.config')).default
-
-        setStudio({
-          Component: NextStudio,
-          config: config,
-        })
-      } catch (error) {
-        console.error('Error loading studio:', error)
-      } finally {
-        setLoading(false)
-      }
-    })()
-  }, [])
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center w-full h-screen">
-        <div className="text-center">
-          <div className="text-lg font-semibold">Cargando Sanity Studio...</div>
+  return (
+    <div className="flex items-center justify-center w-full min-h-screen bg-gray-50">
+      <div className="text-center">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Sanity Studio</h1>
+          <p className="text-gray-600 mb-8">Panel de administración de contenido</p>
         </div>
-      </div>
-    )
-  }
 
-  if (!studio) {
-    return (
-      <div className="flex items-center justify-center w-full h-screen">
-        <div className="text-center text-red-600">
-          <div className="text-lg font-semibold">Error cargando Studio</div>
-          <div className="text-sm">Verifica tu configuración de Sanity</div>
-        </div>
-      </div>
-    )
-  }
+        <a
+          href="https://m8varzzi.sanity.studio"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          Abrir Sanity Studio
+        </a>
 
-  return <studio.Component config={studio.config} />
+        <p className="mt-6 text-sm text-gray-500">
+          Se abrirá en una nueva pestaña
+        </p>
+      </div>
+    </div>
+  )
 }

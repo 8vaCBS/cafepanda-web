@@ -1,9 +1,6 @@
 export const dynamic = "force-dynamic"
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
-import { client } from '@/sanity/lib/client'
-import { latestPostsQuery } from '@/sanity/lib/queries'
 
 export const metadata: Metadata = {
   title: 'Café Panda | Cafetería Artesanal y Coffee Break Corporativo en Valle Grande, Lampa',
@@ -49,13 +46,8 @@ const galeria = [
   { src: 'https://cdn.shopify.com/s/files/1/0773/9683/6592/files/promo_duo_2_0e1411c4-ba43-4d54-b35b-eb6fc1447ef4.jpg', alt: 'Promo duo pastelería - Café Panda' },
 ]
 
-export default async function Home() {
-  let latestPosts: any[] = []
-  try {
-    latestPosts = await client.fetch(latestPostsQuery)
-  } catch (e) {
-    latestPosts = []
-  }
+export default function Home() {
+  const latestPosts: any[] = []
 
   return (
     <>

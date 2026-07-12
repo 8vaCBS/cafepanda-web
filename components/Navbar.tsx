@@ -37,7 +37,7 @@ export default function Navbar() {
         .nav-link:hover { color: #fff; }
       `}</style>
 
-      <header style={{ background: '#111', position: 'sticky', top: 0, zIndex: 1000, borderBottom: '1px solid #1e1e1e' }}>
+      <header style={{ background: '#2a221b', position: 'sticky', top: 0, zIndex: 1000, borderBottom: '1px solid #1e1e1e' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
           {/* LOGO */}
@@ -67,7 +67,7 @@ export default function Navbar() {
                 href="https://wa.me/56942020356?text=Hola,%20quiero%20cotizar%20un%20coffee%20break."
                 target="_blank"
                 rel="noopener"
-                style={{ background: '#bd0505', color: '#fff', padding: '9px 18px', fontSize: 11, fontWeight: 700, textDecoration: 'none', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.1em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
+                style={{ background: '#b26a3c', color: '#fff', padding: '9px 18px', fontSize: 11, fontWeight: 700, textDecoration: 'none', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.1em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
               >
                 Cotizar
               </a>
@@ -92,7 +92,7 @@ export default function Navbar() {
 
         {/* MOBILE MENU */}
         {open && (
-          <div className="nav-mobile-menu" style={{ background: '#111', borderTop: '1px solid #1e1e1e' }}>
+          <div className="nav-mobile-menu" style={{ background: '#2a221b', borderTop: '1px solid #3a2e25' }}>
             {links.map(l => (
               <Link
                 key={l.href}
@@ -108,7 +108,7 @@ export default function Navbar() {
                 href="https://wa.me/56942020356"
                 target="_blank"
                 rel="noopener"
-                style={{ display: 'block', background: '#bd0505', color: '#fff', padding: '14px 20px', fontSize: 12, fontWeight: 700, textDecoration: 'none', textAlign: 'center', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.1em', textTransform: 'uppercase' }}
+                style={{ display: 'block', background: '#b26a3c', color: '#fff', padding: '14px 20px', fontSize: 12, fontWeight: 700, textDecoration: 'none', textAlign: 'center', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.1em', textTransform: 'uppercase' }}
               >
                 Cotizar por WhatsApp
               </a>

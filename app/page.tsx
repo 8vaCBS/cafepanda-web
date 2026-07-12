@@ -162,8 +162,8 @@ export default function Home() {
               <div key={i} style={{ aspectRatio: i === 0 ? '2/1' : '1/1', gridColumn: i === 0 ? 'span 2' : 'span 1', overflow: 'hidden' }}>
                 <img src={img.src} alt={img.alt}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }}
-                  onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.04)')}
-                  onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+                  // hover removed
+                  // hover removed
                   loading="lazy" />
               </div>
             ))}
@@ -209,8 +209,8 @@ export default function Home() {
               <a key={i} href={`https://www.cafepanda.cl/blogs/news/${post.slug}`} target="_blank" rel="noopener" style={{ textDecoration: 'none', display: 'block', background: '#f9f9f9' }}>
                 <div style={{ aspectRatio: '16/9', overflow: 'hidden' }}>
                   <img src={post.img} alt={post.titulo} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
-                    onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.04)')}
-                    onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+                    // hover removed
+                    // hover removed
                     loading="lazy" />
                 </div>
                 <div style={{ padding: '24px 24px 28px' }}>

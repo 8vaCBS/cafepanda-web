@@ -15,57 +15,107 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header style={{ background: '#111', position: 'sticky', top: 0, zIndex: 100, borderBottom: '1px solid #222' }}>
-      <nav style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-          <Image src="/logo.png" alt="Café Panda" width={44} height={44} style={{ display: 'block' }} priority />
-        </Link>
+    <>
+      <style>{`
+        .nav-links { display: none; }
+        .nav-burger { display: flex; }
+        @media (min-width: 768px) {
+          .nav-links { display: flex !important; align-items: center; gap: 32px; list-style: none; }
+          .nav-burger { display: none !important; }
+          .nav-mobile-menu { display: none !important; }
+        }
+        .nav-link {
+          color: rgba(255,255,255,0.8);
+          text-decoration: none;
+          font-size: 11px;
+          font-family: system-ui, sans-serif;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          transition: color 0.15s;
+        }
+        .nav-link:hover { color: #fff; }
+      `}</style>
 
-        {/* Desktop */}
-        <ul style={{ display: 'flex', gap: 36, listStyle: 'none', alignItems: 'center' }} className="nav-desktop">
-          {links.map(l => (
-            <li key={l.href}>
-              <Link href={l.href} style={{ color: '#fff', textDecoration: 'none', fontSize: 12, fontFamily: 'system-ui, sans-serif', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', opacity: 0.75 }}>
+      <header style={{ background: '#111', position: 'sticky', top: 0, zIndex: 1000, borderBottom: '1px solid #1e1e1e' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+
+          {/* LOGO */}
+          <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
+            <Image
+              src="/logo.png"
+              alt="Café Panda"
+              width={40}
+              height={40}
+              style={{ display: 'block', borderRadius: '50%', background: '#fff', padding: 2 }}
+              priority
+            />
+            <span style={{ color: '#fff', fontSize: 15, fontWeight: 700, fontFamily: 'system-ui, sans-serif', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+              Café Panda
+            </span>
+          </Link>
+
+          {/* DESKTOP NAV */}
+          <ul className="nav-links">
+            {links.map(l => (
+              <li key={l.href}>
+                <Link href={l.href} className="nav-link">{l.label}</Link>
+              </li>
+            ))}
+            <li>
+              <a
+                href="https://wa.me/56942020356?text=Hola,%20quiero%20cotizar%20un%20coffee%20break."
+                target="_blank"
+                rel="noopener"
+                style={{ background: '#bd0505', color: '#fff', padding: '9px 18px', fontSize: 11, fontWeight: 700, textDecoration: 'none', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.1em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
+              >
+                Cotizar
+              </a>
+            </li>
+          </ul>
+
+          {/* MOBILE BURGER */}
+          <button
+            className="nav-burger"
+            onClick={() => setOpen(!open)}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8, alignItems: 'center', justifyContent: 'center' }}
+            aria-label="Menú"
+          >
+            <svg width="22" height="22" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
+              {open
+                ? <><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></>
+                : <><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></>
+              }
+            </svg>
+          </button>
+        </div>
+
+        {/* MOBILE MENU */}
+        {open && (
+          <div className="nav-mobile-menu" style={{ background: '#111', borderTop: '1px solid #1e1e1e' }}>
+            {links.map(l => (
+              <Link
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                style={{ display: 'block', color: 'rgba(255,255,255,0.8)', textDecoration: 'none', padding: '14px 20px', fontSize: 13, fontFamily: 'system-ui, sans-serif', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', borderBottom: '1px solid #1e1e1e' }}
+              >
                 {l.label}
               </Link>
-            </li>
-          ))}
-          <li>
-            <a href="https://wa.me/56942020356?text=Hola,%20quiero%20cotizar%20un%20coffee%20break."
-              target="_blank" rel="noopener"
-              style={{ background: '#bd0505', color: '#fff', padding: '9px 20px', fontSize: 11, fontWeight: 700, textDecoration: 'none', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-              Cotizar
-            </a>
-          </li>
-        </ul>
-
-        {/* Mobile hamburger */}
-        <button onClick={() => setOpen(!open)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8 }} className="nav-mobile" aria-label="Menú">
-          <svg width="22" height="22" fill="none" stroke="#fff" strokeWidth="2">
-            {open ? <path d="M6 18L18 6M6 6l12 12" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
-          </svg>
-        </button>
-      </nav>
-
-      {open && (
-        <div style={{ background: '#111', borderTop: '1px solid #222', padding: '16px 20px 24px' }}>
-          {links.map(l => (
-            <Link key={l.href} href={l.href} onClick={() => setOpen(false)}
-              style={{ display: 'block', color: '#fff', textDecoration: 'none', padding: '12px 0', fontSize: 13, fontFamily: 'system-ui, sans-serif', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', borderBottom: '1px solid #222', opacity: 0.8 }}>
-              {l.label}
-            </Link>
-          ))}
-          <a href="https://wa.me/56942020356" target="_blank" rel="noopener"
-            style={{ display: 'block', marginTop: 16, background: '#bd0505', color: '#fff', padding: '12px 20px', fontSize: 12, fontWeight: 700, textDecoration: 'none', textAlign: 'center', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-            Cotizar por WhatsApp
-          </a>
-        </div>
-      )}
-
-      <style>{`
-        @media (min-width: 768px) { .nav-desktop { display: flex !important; } .nav-mobile { display: none !important; } }
-        @media (max-width: 767px) { .nav-desktop { display: none !important; } .nav-mobile { display: block !important; } }
-      `}</style>
-    </header>
+            ))}
+            <div style={{ padding: 16 }}>
+              <a
+                href="https://wa.me/56942020356"
+                target="_blank"
+                rel="noopener"
+                style={{ display: 'block', background: '#bd0505', color: '#fff', padding: '14px 20px', fontSize: 12, fontWeight: 700, textDecoration: 'none', textAlign: 'center', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.1em', textTransform: 'uppercase' }}
+              >
+                Cotizar por WhatsApp
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
+    </>
   )
 }

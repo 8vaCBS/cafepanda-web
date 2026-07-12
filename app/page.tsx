@@ -4,6 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Café Panda | Cafetería Artesanal y Coffee Break Corporativo en Valle Grande, Lampa',
   description: 'Casi 10 años siendo parte de Valle Grande. Coffee breaks corporativos, tortas personalizadas y banquetería artesanal para empresas y eventos en Santiago y zona norte RM.',
+  alternates: { canonical: 'https://www.cafepanda.cl' },
 }
 
 const blogPosts = [
@@ -30,98 +31,73 @@ const blogPosts = [
   },
 ]
 
-const servicios = [
-  {
-    emoji: '☕',
-    titulo: 'Coffee Break Corporativo',
-    descripcion: 'Para reuniones ejecutivas, capacitaciones y eventos empresariales. Montaje profesional incluido. Desde 10 hasta +100 personas en toda la RM.',
-    href: '/servicios#coffee-break',
-  },
-  {
-    emoji: '🎂',
-    titulo: 'Tortas Personalizadas',
-    descripcion: 'Tortas artesanales a pedido para cumpleaños, celebraciones y eventos. Diseños únicos, preparación del día.',
-    href: '/servicios#tortas',
-  },
-  {
-    emoji: '🍱',
-    titulo: 'Banquetería para Empresas',
-    descripcion: 'Servicio completo para colegios, instituciones y eventos corporativos. Menús 100% personalizables según tu presupuesto.',
-    href: '/servicios#banqueteria',
-  },
-]
-
-const galeria = [
-  { src: 'https://www.cafepanda.cl/cdn/shop/files/716D5037-8546-40BD-90F7-FE73F8ADC847.jpg?v=1780871903&width=800', alt: 'Café Panda - Sabores para regalar y compartir' },
-  { src: 'https://www.cafepanda.cl/cdn/shop/files/98b5a4ec-574c-4fe8-9fa9-7506fa73de0f.jpg?v=1762127375&width=800', alt: 'Coffee break y eventos para instituciones - Café Panda' },
-  { src: 'https://www.cafepanda.cl/cdn/shop/files/PHOTO-2026-04-08-13-02-10.jpg?v=1780872511&width=800', alt: 'Coffee break premium para empresas - Café Panda' },
-  { src: 'https://www.cafepanda.cl/cdn/shop/files/tortas_pedido_2.jpg?width=800', alt: 'Tortas personalizadas artesanales - Café Panda' },
-  { src: 'https://www.cafepanda.cl/cdn/shop/files/cheese_cake_maracuja_grande2.jpg?width=800', alt: 'Cheesecake artesanal - Café Panda' },
-  { src: 'https://www.cafepanda.cl/cdn/shop/files/Blue_and_Yellow_Modern_Brunch_Buffet_Instagram_Post_1.png?v=1760010010&width=800', alt: 'Los mejores eventos con los Pandas' },
+const galeriaEventos = [
+  { src: 'https://cdn.shopify.com/s/files/1/0773/9683/6592/files/PHOTO-2025-07-14-10-02-46_4fe8522a-7d14-4473-ac6d-dd1ffd39194f.jpg?v=1765318717', alt: 'Coffee break corporativo para jornada de capacitación — empresa multinacional, Santiago' },
+  { src: 'https://cdn.shopify.com/s/files/1/0773/9683/6592/files/316035E1-6369-444B-8996-211C382A91B9.jpg?v=1780872511', alt: 'Evento de bienvenida con banquetería artesanal — empresa multinacional, Santiago' },
+  { src: 'https://cdn.shopify.com/s/files/1/0773/9683/6592/files/PHOTO-2026-04-08-13-02-10.jpg?v=1780872511', alt: 'Coffee break para evento corporativo en centro médico — Providencia, Santiago' },
+  { src: 'https://cdn.shopify.com/s/files/1/0773/9683/6592/files/CC5B3360-BC16-49D0-92BD-C6DCA96933B6.jpg?v=1765319225', alt: 'Banquetería completa para licenciatura — colegio Valle Grande, Lampa' },
+  { src: 'https://cdn.shopify.com/s/files/1/0773/9683/6592/files/PHOTO-2026-04-08-09-59-03.jpg?v=1780872512', alt: 'Desayuno ejecutivo para capacitación — laboratorio farmacéutico, RM' },
+  { src: 'https://cdn.shopify.com/s/files/1/0773/9683/6592/files/66798dbc-975f-4063-9cca-393ab1086c2f.jpg?v=1763085105', alt: 'Mesa dulce y salada para matrimonio al aire libre — Pichidangui' },
 ]
 
 const testimonios = [
-  { texto: 'Todo llegó puntual, delicioso y perfectamente presentado. ¡Recomendado 100%!', autor: 'Marcela G.', zona: 'Chicureo' },
-  { texto: 'Pedí un desayuno sorpresa y superó todas mis expectativas. Atención muy cálida por parte de los Panditas.', autor: 'Carlos P.', zona: 'Valle Grande' },
-  { texto: 'Nuestros eventos de empresa siempre son un éxito. Café Panda es nuestro proveedor.', autor: 'Andrea R.', zona: 'Providencia' },
+  { texto: 'El coffee break llegó puntual, la presentación fue impecable y todo muy rico. Los asistentes quedaron felices.', autor: 'Coordinadora de RRHH', empresa: 'Empresa de Alimentos · RM' },
+  { texto: 'Contratamos a Café Panda para la licenciatura del curso y resultó perfecto: abundante, variado y bien organizado.', autor: 'Centro de Padres', empresa: 'Colegio Particular Valle Grande' },
+  { texto: 'Rápidos, flexibles y confiables. Los volveríamos a contratar sin dudar para nuestras jornadas corporativas.', autor: 'Encargado de Comunicaciones', empresa: 'Empresa de Maquinaria · Santiago' },
 ]
 
 export default function Home() {
   return (
     <>
       {/* TICKER */}
-      <div style={{ background: '#111', color: '#fff', fontSize: 13, fontWeight: 600, letterSpacing: '0.05em', overflow: 'hidden', whiteSpace: 'nowrap', padding: '10px 0', fontFamily: 'system-ui, sans-serif' }}>
-        <span style={{ display: 'inline-block', animation: 'none' }}>
-          &nbsp;&nbsp;&nbsp;Somos la Primera Cafetería de Valle Grande · 9 años de historia y miles de clientes felices · Despachamos a toda la RM &nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp; Somos la Primera Cafetería de Valle Grande · 9 años de historia y miles de clientes felices · Despachamos a toda la RM
-        </span>
+      <div style={{ background: '#111', color: '#fff', fontSize: 12, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '10px 0', textAlign: 'center', fontFamily: 'system-ui, sans-serif' }}>
+        Somos la Primera Cafetería de Valle Grande &nbsp;·&nbsp; 9 años de historia &nbsp;·&nbsp; Despachamos a toda la RM
       </div>
 
       {/* HERO */}
-      <section style={{ position: 'relative', minHeight: '85vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <img
-            src="https://www.cafepanda.cl/cdn/shop/files/716D5037-8546-40BD-90F7-FE73F8ADC847.jpg?v=1780871903&width=1920"
-            alt="Café Panda - Sabores para regalar y compartir"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-          />
-          <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.52)' }} />
-        </div>
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: 1100, margin: '0 auto', padding: '80px 20px', width: '100%' }}>
-          <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#f0c070', display: 'block', marginBottom: 16, fontFamily: 'system-ui, sans-serif' }}>
-            Valle Grande, Lampa · Primera Cafetería del Barrio
-          </span>
-          <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(2.4rem, 6vw, 4rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: 24, color: '#fff', maxWidth: 700 }}>
+      <section style={{ position: 'relative', minHeight: '90vh', display: 'flex', alignItems: 'flex-end' }}>
+        <img
+          src="https://www.cafepanda.cl/cdn/shop/files/716D5037-8546-40BD-90F7-FE73F8ADC847.jpg?v=1780871903&width=1920"
+          alt="Café Panda — Sabores para regalar y compartir"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%)' }} />
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: 1100, margin: '0 auto', padding: '0 20px 72px', width: '100%' }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 16, fontFamily: 'system-ui, sans-serif' }}>
+            Valle Grande, Lampa — Primera Cafetería del Barrio
+          </p>
+          <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(2.8rem, 7vw, 5rem)', fontWeight: 900, lineHeight: 1.05, color: '#fff', marginBottom: 24, maxWidth: 700 }}>
             Sabores para regalar y compartir
           </h1>
-          <p style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.88)', marginBottom: 40, fontFamily: 'system-ui, sans-serif', maxWidth: 540 }}>
-            Coffee breaks corporativos, tortas personalizadas y banquetería artesanal para empresas y eventos. Frescos del día. Casi 10 años en Valle Grande.
+          <p style={{ fontSize: 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.82)', marginBottom: 36, fontFamily: 'system-ui, sans-serif', maxWidth: 500 }}>
+            Coffee breaks corporativos, tortas personalizadas y banquetería artesanal. Casi 10 años en Valle Grande.
           </p>
-          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-            <a href="https://wa.me/56942020356?text=Hola,%20quiero%20cotizar%20un%20coffee%20break%20o%20banqueter%C3%ADa%20con%20Café%20Panda."
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <a href="https://wa.me/56942020356?text=Hola,%20quiero%20cotizar%20un%20coffee%20break%20con%20Café%20Panda."
               target="_blank" rel="noopener"
-              style={{ background: '#25d366', color: 'white', padding: '16px 32px', borderRadius: 4, fontSize: 16, fontWeight: 700, textDecoration: 'none', fontFamily: 'system-ui, sans-serif', display: 'inline-block', letterSpacing: '0.03em' }}>
-              💬 Cotizar por WhatsApp
+              style={{ background: '#bd0505', color: '#fff', padding: '14px 28px', fontSize: 14, fontWeight: 700, textDecoration: 'none', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+              Cotizar por WhatsApp
             </a>
             <Link href="/servicios"
-              style={{ background: 'transparent', color: '#fff', padding: '16px 32px', borderRadius: 4, fontSize: 16, fontWeight: 600, textDecoration: 'none', fontFamily: 'system-ui, sans-serif', border: '2px solid rgba(255,255,255,0.6)', display: 'inline-block' }}>
-              Ver servicios →
+              style={{ background: 'transparent', color: '#fff', padding: '14px 28px', fontSize: 14, fontWeight: 700, textDecoration: 'none', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.06em', textTransform: 'uppercase', border: '1px solid rgba(255,255,255,0.5)' }}>
+              Ver Servicios
             </Link>
           </div>
         </div>
       </section>
 
       {/* PROPUESTA VALOR */}
-      <section style={{ background: '#111', color: '#fff', padding: '0' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
+      <section style={{ background: '#f9f9f9', borderBottom: '1px solid #eee' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
           {[
-            { icon: '🗓️', texto: 'Casi 10 años de experiencia' },
-            { icon: '🥐', texto: 'Preparaciones frescas del día' },
-            { icon: '📋', texto: 'Contrato claro, sin letra chica' },
-            { icon: '🚚', texto: 'Puntualidad garantizada' },
+            { n: '9+', label: 'Años de experiencia' },
+            { n: '73', label: 'Reseñas en Google' },
+            { n: '100%', label: 'Productos frescos del día' },
+            { n: '4.8', label: 'Calificación promedio' },
           ].map((item, i) => (
-            <div key={i} style={{ padding: '24px 28px', display: 'flex', alignItems: 'center', gap: 14, borderRight: i < 3 ? '1px solid rgba(255,255,255,0.1)' : 'none', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-              <span style={{ fontSize: 22 }}>{item.icon}</span>
-              <span style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.04em', fontFamily: 'system-ui, sans-serif', textTransform: 'uppercase' }}>{item.texto}</span>
+            <div key={i} style={{ padding: '28px 24px', textAlign: 'center', borderRight: i < 3 ? '1px solid #eee' : 'none' }}>
+              <p style={{ fontSize: 32, fontWeight: 900, color: '#bd0505', fontFamily: "'Playfair Display', Georgia, serif", marginBottom: 4 }}>{item.n}</p>
+              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#666', fontFamily: 'system-ui, sans-serif' }}>{item.label}</p>
             </div>
           ))}
         </div>
@@ -131,17 +107,23 @@ export default function Home() {
       <section style={{ padding: '88px 20px', background: '#fff' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ marginBottom: 56 }}>
-            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#888', fontFamily: 'system-ui, sans-serif' }}>Lo que hacemos</span>
-            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#111', marginTop: 8, fontWeight: 900 }}>Nuestros servicios</h2>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#999', fontFamily: 'system-ui, sans-serif', marginBottom: 12 }}>Lo que hacemos</p>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 900, color: '#111' }}>Nuestros servicios</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 2 }}>
-            {servicios.map((s, i) => (
-              <div key={i} style={{ background: i === 1 ? '#111' : '#f5f5f5', padding: '40px 36px', position: 'relative' }}>
-                <span style={{ fontSize: 36, display: 'block', marginBottom: 20 }}>{s.emoji}</span>
-                <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 22, color: i === 1 ? '#fff' : '#111', marginBottom: 14, fontWeight: 700 }}>{s.titulo}</h3>
-                <p style={{ fontSize: 15, lineHeight: 1.75, color: i === 1 ? 'rgba(255,255,255,0.75)' : '#555', marginBottom: 28, fontFamily: 'system-ui, sans-serif' }}>{s.descripcion}</p>
-                <Link href={s.href} style={{ color: i === 1 ? '#f0c070' : '#111', fontWeight: 700, textDecoration: 'none', fontSize: 13, fontFamily: 'system-ui, sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase', borderBottom: `2px solid ${i === 1 ? '#f0c070' : '#111'}`, paddingBottom: 2 }}>
-                  Ver más →
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 1, background: '#eee' }}>
+            {[
+              { titulo: 'Coffee Break Corporativo', descripcion: 'Para reuniones ejecutivas, capacitaciones y eventos empresariales. Montaje profesional incluido. Desde 10 hasta +100 personas en toda la RM.', href: '/servicios#coffee-break', cta: 'Ver más' },
+              { titulo: 'Tortas Personalizadas', descripcion: 'Tortas artesanales a pedido para cumpleaños, celebraciones y eventos. Diseños únicos, preparación del día, entrega en Santiago.', href: '/servicios#tortas', cta: 'Ver más' },
+              { titulo: 'Banquetería para Empresas', descripcion: 'Servicio completo para colegios, instituciones y eventos corporativos. Menús 100% personalizables según tu presupuesto.', href: '/servicios#banqueteria', cta: 'Ver más' },
+            ].map((s, i) => (
+              <div key={i} style={{ background: i === 1 ? '#111' : '#fff', padding: '48px 40px' }}>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: i === 1 ? '#bd0505' : '#bd0505', marginBottom: 16, fontFamily: 'system-ui, sans-serif' }}>
+                  0{i + 1}
+                </p>
+                <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 22, fontWeight: 700, color: i === 1 ? '#fff' : '#111', marginBottom: 16, lineHeight: 1.3 }}>{s.titulo}</h3>
+                <p style={{ fontSize: 15, lineHeight: 1.8, color: i === 1 ? 'rgba(255,255,255,0.65)' : '#555', marginBottom: 32, fontFamily: 'system-ui, sans-serif' }}>{s.descripcion}</p>
+                <Link href={s.href} style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: i === 1 ? '#fff' : '#111', textDecoration: 'none', fontFamily: 'system-ui, sans-serif', borderBottom: `1px solid ${i === 1 ? '#fff' : '#111'}`, paddingBottom: 2 }}>
+                  {s.cta} →
                 </Link>
               </div>
             ))}
@@ -149,22 +131,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SEGUNDA FOTO HERO */}
+      <section style={{ position: 'relative', height: '60vh', overflow: 'hidden' }}>
+        <img
+          src="https://www.cafepanda.cl/cdn/shop/files/98b5a4ec-574c-4fe8-9fa9-7506fa73de0f.jpg?v=1762127375&width=1920"
+          alt="Coffee break y eventos para instituciones — Café Panda"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ textAlign: 'center', color: '#fff', padding: '0 20px' }}>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 16, fontFamily: 'system-ui, sans-serif', opacity: 0.7 }}>Novedades</p>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 900, lineHeight: 1.15, marginBottom: 28 }}>
+              Coffee, eventos para instituciones y empresas
+            </h2>
+            <a href="https://wa.me/56942020356?text=Hola,%20quiero%20cotizar%20un%20coffee%20break%20para%20mi%20empresa."
+              target="_blank" rel="noopener"
+              style={{ background: '#bd0505', color: '#fff', padding: '14px 28px', fontSize: 13, fontWeight: 700, textDecoration: 'none', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'inline-block' }}>
+              Cotizar ahora
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* GALERÍA */}
-      <section style={{ padding: '88px 20px', background: '#f9f9f9' }}>
+      <section style={{ padding: '88px 20px', background: '#fff' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ marginBottom: 48 }}>
-            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#888', fontFamily: 'system-ui, sans-serif' }}>Fotos 100% reales</span>
-            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#111', marginTop: 8, fontWeight: 900 }}>Eventos que hemos realizado</h2>
-            <p style={{ fontSize: 15, color: '#666', marginTop: 8, fontFamily: 'system-ui, sans-serif' }}>Todo lo que ves corresponde a eventos reales. No usamos fotos de stock.</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 48, flexWrap: 'wrap', gap: 16 }}>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#999', fontFamily: 'system-ui, sans-serif', marginBottom: 12 }}>Fotos 100% reales</p>
+              <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 900, color: '#111' }}>Eventos realizados</h2>
+            </div>
+            <Link href="/servicios" style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#111', textDecoration: 'none', fontFamily: 'system-ui, sans-serif', borderBottom: '1px solid #111', paddingBottom: 2 }}>
+              Ver todos los servicios →
+            </Link>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 4 }}>
-            {galeria.map((img, i) => (
-              <div key={i} style={{ aspectRatio: i === 0 ? '2/1' : '1/1', gridColumn: i === 0 ? 'span 2' : 'span 1', overflow: 'hidden' }}>
-                <img src={img.src} alt={img.alt}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }}
-                  // hover removed
-                  // hover removed
-                  loading="lazy" />
+            {galeriaEventos.map((img, i) => (
+              <div key={i} style={{ aspectRatio: i === 0 ? '16/9' : '1/1', gridColumn: i === 0 ? 'span 2' : 'span 1', overflow: 'hidden', background: '#f0f0f0' }}>
+                <img src={img.src} alt={img.alt} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" />
               </div>
             ))}
           </div>
@@ -172,52 +176,56 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIOS */}
-      <section style={{ padding: '88px 20px', background: '#111', color: '#fff' }}>
+      <section style={{ padding: '88px 20px', background: '#111' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ marginBottom: 56 }}>
-            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#888', fontFamily: 'system-ui, sans-serif' }}>Lo que dicen de nosotros</span>
-            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 2.8rem)', marginTop: 8, fontWeight: 900 }}>⭐ 4.9/5 en Google y Facebook</h2>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#555', fontFamily: 'system-ui, sans-serif', marginBottom: 12 }}>Lo que dicen de nosotros</p>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 900, color: '#fff' }}>
+              4.8 de 5 · 73 reseñas en Google
+            </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 1 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 1, background: '#222' }}>
             {testimonios.map((t, i) => (
-              <div key={i} style={{ background: 'rgba(255,255,255,0.05)', padding: '36px 32px', borderLeft: '1px solid rgba(255,255,255,0.08)' }}>
-                <p style={{ fontSize: 16, lineHeight: 1.8, fontStyle: 'italic', marginBottom: 24, color: 'rgba(255,255,255,0.85)', fontFamily: "'Playfair Display', Georgia, serif" }}>"{t.texto}"</p>
-                <div>
-                  <p style={{ fontWeight: 700, fontSize: 14, fontFamily: 'system-ui, sans-serif', color: '#f0c070' }}>{t.autor}</p>
-                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', fontFamily: 'system-ui, sans-serif' }}>{t.zona}</p>
-                </div>
+              <div key={i} style={{ background: '#111', padding: '40px 32px' }}>
+                <p style={{ fontSize: 13, color: '#bd0505', letterSpacing: '0.05em', fontFamily: 'system-ui, sans-serif', marginBottom: 16 }}>★★★★★</p>
+                <p style={{ fontSize: 16, lineHeight: 1.8, color: 'rgba(255,255,255,0.75)', fontFamily: "'Playfair Display', Georgia, serif", fontStyle: 'italic', marginBottom: 24 }}>"{t.texto}"</p>
+                <p style={{ fontSize: 13, fontWeight: 700, color: '#fff', fontFamily: 'system-ui, sans-serif' }}>{t.autor}</p>
+                <p style={{ fontSize: 12, color: '#555', fontFamily: 'system-ui, sans-serif', marginTop: 4 }}>{t.empresa}</p>
               </div>
             ))}
+          </div>
+          <div style={{ marginTop: 40, textAlign: 'center' }}>
+            <a href="https://share.google/qHqw5NeZzh4raFYwV" target="_blank" rel="noopener"
+              style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff', textDecoration: 'none', fontFamily: 'system-ui, sans-serif', borderBottom: '1px solid #555', paddingBottom: 2 }}>
+              Ver las 73 reseñas verificadas en Google Maps →
+            </a>
           </div>
         </div>
       </section>
 
       {/* BLOG */}
-      <section style={{ padding: '88px 20px', background: '#fff' }}>
+      <section style={{ padding: '88px 20px', background: '#f9f9f9' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 48, flexWrap: 'wrap', gap: 16 }}>
             <div>
-              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#888', fontFamily: 'system-ui, sans-serif' }}>Novedades del Café Panda</span>
-              <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#111', marginTop: 8, fontWeight: 900 }}>Del blog</h2>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#999', fontFamily: 'system-ui, sans-serif', marginBottom: 12 }}>Novedades del Café Panda</p>
+              <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 900, color: '#111' }}>Del blog</h2>
             </div>
-            <Link href="/blog" style={{ fontSize: 13, fontWeight: 700, color: '#111', textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase', borderBottom: '2px solid #111', paddingBottom: 2, fontFamily: 'system-ui, sans-serif' }}>
+            <Link href="/blog" style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#111', textDecoration: 'none', fontFamily: 'system-ui, sans-serif', borderBottom: '1px solid #111', paddingBottom: 2 }}>
               Ver todos →
             </Link>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 2 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
             {blogPosts.map((post, i) => (
-              <a key={i} href={`https://www.cafepanda.cl/blogs/news/${post.slug}`} target="_blank" rel="noopener" style={{ textDecoration: 'none', display: 'block', background: '#f9f9f9' }}>
-                <div style={{ aspectRatio: '16/9', overflow: 'hidden' }}>
-                  <img src={post.img} alt={post.titulo} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
-                    // hover removed
-                    // hover removed
-                    loading="lazy" />
+              <a key={i} href={`https://www.cafepanda.cl/blogs/news/${post.slug}`} target="_blank" rel="noopener" style={{ textDecoration: 'none', display: 'block', background: '#fff' }}>
+                <div style={{ aspectRatio: '16/9', overflow: 'hidden', background: '#eee' }}>
+                  <img src={post.img} alt={post.titulo} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" />
                 </div>
                 <div style={{ padding: '24px 24px 28px' }}>
-                  <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#888', fontFamily: 'system-ui, sans-serif' }}>{post.categoria}</span>
-                  <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 18, color: '#111', margin: '8px 0 10px', lineHeight: 1.3, fontWeight: 700 }}>{post.titulo}</h3>
-                  <p style={{ fontSize: 14, color: '#666', lineHeight: 1.6, fontFamily: 'system-ui, sans-serif' }}>{post.excerpt}</p>
-                  <p style={{ marginTop: 16, fontSize: 12, color: '#111', fontWeight: 700, fontFamily: 'system-ui, sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Leer →</p>
+                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999', fontFamily: 'system-ui, sans-serif', marginBottom: 10 }}>{post.categoria}</p>
+                  <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 18, fontWeight: 700, color: '#111', marginBottom: 10, lineHeight: 1.3 }}>{post.titulo}</h3>
+                  <p style={{ fontSize: 14, color: '#666', lineHeight: 1.6, fontFamily: 'system-ui, sans-serif', marginBottom: 16 }}>{post.excerpt}</p>
+                  <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#bd0505', fontFamily: 'system-ui, sans-serif' }}>Leer →</p>
                 </div>
               </a>
             ))}
@@ -226,23 +234,23 @@ export default function Home() {
       </section>
 
       {/* CTA FINAL */}
-      <section style={{ padding: '88px 20px', background: '#f0c070', color: '#111', textAlign: 'center' }}>
-        <div style={{ maxWidth: 680, margin: '0 auto' }}>
-          <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.5)', fontFamily: 'system-ui, sans-serif' }}>¿Tienes un evento próximo?</span>
-          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', marginTop: 12, marginBottom: 20, fontWeight: 900 }}>
+      <section style={{ padding: '88px 20px', background: '#bd0505', color: '#fff', textAlign: 'center' }}>
+        <div style={{ maxWidth: 640, margin: '0 auto' }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontFamily: 'system-ui, sans-serif', marginBottom: 16 }}>Casi 10 años en Valle Grande</p>
+          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, marginBottom: 20, lineHeight: 1.15 }}>
             Los mejores eventos y coffee son con los Pandas
           </h2>
-          <p style={{ fontSize: 17, lineHeight: 1.7, color: 'rgba(0,0,0,0.7)', marginBottom: 40, fontFamily: 'system-ui, sans-serif' }}>
-            Café Panda lleva casi 10 años realizando eventos corporativos, coffee breaks y eventos para colegios en Santiago y toda la RM.
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.85)', marginBottom: 40, fontFamily: 'system-ui, sans-serif' }}>
+            Café Panda lleva casi 10 años realizando eventos corporativos, coffee breaks, licenciaturas y eventos para colegios en Santiago y toda la RM.
           </p>
-          <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="https://wa.me/56942020356?text=Hola,%20quiero%20cotizar%20un%20coffee%20break%20para%20mi%20empresa."
               target="_blank" rel="noopener"
-              style={{ background: '#111', color: 'white', padding: '16px 32px', borderRadius: 4, fontSize: 16, fontWeight: 700, textDecoration: 'none', fontFamily: 'system-ui, sans-serif' }}>
-              💬 Cotizar por WhatsApp
+              style={{ background: '#fff', color: '#bd0505', padding: '14px 28px', fontSize: 13, fontWeight: 700, textDecoration: 'none', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              Cotizar por WhatsApp
             </a>
             <Link href="/contacto"
-              style={{ background: 'transparent', color: '#111', padding: '16px 32px', borderRadius: 4, fontSize: 16, fontWeight: 700, textDecoration: 'none', fontFamily: 'system-ui, sans-serif', border: '2px solid #111' }}>
+              style={{ background: 'transparent', color: '#fff', padding: '14px 28px', fontSize: 13, fontWeight: 700, textDecoration: 'none', fontFamily: 'system-ui, sans-serif', letterSpacing: '0.08em', textTransform: 'uppercase', border: '1px solid rgba(255,255,255,0.5)' }}>
               Formulario de contacto
             </Link>
           </div>
